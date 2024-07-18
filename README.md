@@ -6,7 +6,7 @@ Welcome to the most intense, friendship-testing, and hilariously dramatic Tic-Ta
 * Graphics: Simple and clean
 ## Installation
 1. Clone the repository:
-`git clone https://github.com/yourusername/tictactoe.git`
+`https://github.com/Dawixus/TikTakToe.git`
 2. Navigate to the project directory:
 `cd tictactoe`
 3. Run the game:
