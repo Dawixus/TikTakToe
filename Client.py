@@ -172,14 +172,17 @@ class TikTakToeClient:
 
 if __name__ == '__main__':
     # Create and configure the server socket
-    server_address = str(input("Zadejte IP adresu cíle ve formátu X.X.X.X:\n"))  # Prompt for server IP
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create the server socket
-    server_ip = server_address  # Set the server IP address
-    server_port = 12345  # Set the server port number
-    try:
-        server_socket.connect((server_ip, server_port))  # Attempt to connect to the server
-        a = TikTakToeClient()  # Initialize the game client if connected successfully
-    except (ConnectionRefusedError, TimeoutError):
-        print("Cíl není dostupný")  # Print message if the connection is refused or times out
-    except socket.gaierror:
-        print("Špatně jste zadal IP adresu")  # Print message if the IP address is invalid
+    while True:
+        server_address = str(input("Zadejte IP adresu cíle ve formátu X.X.X.X and q pro ukončení programu:\n"))  # Prompt for server IP
+        if server_address == "q":
+            break
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create the server socket
+        server_ip = server_address  # Set the server IP address
+        server_port = 12345  # Set the server port number
+        try:
+            server_socket.connect((server_ip, server_port))  # Attempt to connect to the server
+            a = TikTakToeClient()  # Initialize the game client if connected successfully
+        except (ConnectionRefusedError, TimeoutError):
+            print("Cíl není dostupný")  # Print message if the connection is refused or times out
+        except socket.gaierror:
+            print("Špatně jste zadal IP adresu")  # Print message if the IP address is invalid
